@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="861" prefWidth="1138.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cn.shengwenzeng.instanceinterfacesqlfx.Interface2SQLController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1098.0">
+    </HBox>
+    <GridPane>
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="500.0" minWidth="200.0" prefWidth="200.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1368.0" minWidth="10.0" prefWidth="1086.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <Label text="接口 Excel 文件路径："/>
+        <TextField fx:id="ExcelPathTextField" onMouseClicked="#getExcelPath" prefHeight="23.0" prefWidth="626.0" text="请点击本输入框选择文件" GridPane.columnIndex="1">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </TextField>
+        <Label text="系统标识[例如：HXEsb]：" GridPane.rowIndex="1"/>
+        <TextField fx:id="esbTag" prefHeight="23.0" prefWidth="626.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="接口号：" GridPane.rowIndex="2"/>
+        <TextField fx:id="esbCode" prefHeight="23.0" prefWidth="626.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+    <Button contentDisplay="BOTTOM" onAction="#onGenerateButtonClick" prefHeight="40.0" prefWidth="200.0" text="生成SQL" textAlignment="CENTER"/>
+    <TextArea fx:id="resultSQL" prefHeight="200.0" prefWidth="200.0" text="README&#10;1. 点击接口 Excel 文件路径输入框以选择文件。&#10;2. 完成信息填写后，点击生成 SQL 按钮，生成的 SQL 脚本会显示在这里，同时自动写入到剪贴板，可直接粘贴。也可以点击下方按钮保存到文件。&#10;3. 如果信息填写错误，可以直接修改并重新生成，将覆盖上次生成。"/>
+    <Button mnemonicParsing="false" onAction="#saveSQL" prefHeight="40.0" prefWidth="200.0" text="保存SQL到文件"/>
+</VBox>
